@@ -21,7 +21,9 @@ A lightweight antivirus built in Python that scans files and directories using s
 🐍 Pure Python Implementation
 📄 Scan Reports (JSON/TXT ready)
 🚧 Quarantine System (extendable)
+
 📂 Project Structure
+
 Antivirus/
 │── main.py              # CLI entry point
 │── scanner.py           # Core detection engine
@@ -173,7 +175,7 @@ jobs:
 
 📜 License
 
-MIT License
+AGPL v3.0 License
 
 ⭐ Support
 
@@ -212,7 +214,7 @@ Below is a GitHub-optimized README.md with clean formatting, visual hierarchy, b
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.x-blue"/>
-  <img src="https://img.shields.io/badge/License-MIT-green"/>
+  <img src="https://img.shields.io/badge/License-AGPL-green"/>
   <img src="https://img.shields.io/badge/Status-Active-brightgreen"/>
   <img src="https://img.shields.io/badge/Contributions-Welcome-orange"/>
 </p>
@@ -376,7 +378,7 @@ jobs:
 
 📜 License
 
-MIT License
+AGPL v3.0 License
 
 ⭐ Support
 
