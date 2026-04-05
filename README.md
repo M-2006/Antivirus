@@ -1,363 +1,235 @@
-🛡️ Python Antivirus
-
-
-
-
-
-
-
-
-
-
-A lightweight antivirus built in Python that scans files and directories using signature-based detection and basic heuristic analysis.
-
-⚠️ Designed for educational and cybersecurity learning purposes
-
-🚀 Features
-🔍 File & Directory Scanning
-🧬 Signature-Based Detection
-🧠 Heuristic Analysis
-⚡ Fast & Lightweight
-🐍 Pure Python Implementation
-📄 Scan Reports (JSON/TXT ready)
-🚧 Quarantine System (extendable)
-
-📂 Project Structure
-
-Antivirus/
-│── main.py              # CLI entry point
-│── scanner.py           # Core detection engine
-│── signatures.txt       # Malware signature database
-│── utils.py             # Helper functions
-│── quarantine/          # (Optional) isolated threats
-│── reports/             # Scan outputs
-│── README.md
-
-🛠️ Installation
-git clone https://github.com/M-2006/Antivirus.git
-cd Antivirus
-
-(Optional) Virtual Environment
-python -m venv venv
-source venv/bin/activate      # Linux / macOS
-venv\Scripts\activate         # Windows
-
-Install dependencies
-pip install -r requirements.txt
-
-▶️ Usage
-🔹 Scan a file
-python main.py --file path/to/file
-
-🔹 Scan a directory
-python main.py --dir path/to/folder
-
-🔹 Enable report output
-python main.py --dir ./test --report json
-
-🔹 Example
-python main.py --dir C:\Users\YourName\Downloads --report txt
-
-🧾 CLI Help Menu (Recommended to implement)
-python main.py --help
-
-
-Suggested output:
-
-Usage:
-  --file <path>       Scan a single file
-  --dir <path>        Scan a directory
-  --report <type>     Output report (json/txt)
-  --quarantine        Move infected files to quarantine
-
-🧪 How It Works
-🧬 Signature Matching
-Reads known malware patterns from signatures.txt
-Compares them against file contents
-🧠 Heuristic Analysis
-Flags suspicious structures or patterns
-Helps detect modified or unknown malware
-🧪 Example Output
-[INFO] Scanning: test.exe
-[WARNING] Suspicious pattern detected
-[ALERT] Malware signature match found!
-
-Result: INFECTED
-
-📄 Scan Reports
-
-Reports can be saved in:
-
-JSON
-{
-  "file": "test.exe",
-  "status": "infected",
-  "detections": ["Trojan.Generic"]
-}
-
-TXT
-File: test.exe
-Status: INFECTED
-Detection: Trojan.Generic
-
-🚧 Quarantine System (Concept)
-
-When enabled:
-
-Infected files are moved to /quarantine
-Prevents execution
-Keeps system safe while preserving file for analysis
-
-Example:
-
-quarantine/
-└── test.exe
-
-⚠️ Limitations
-❌ No real-time protection
-❌ No automatic signature updates
-❌ Basic detection only
-❌ Possible false positives
-📌 Disclaimer
-
-This software is provided “as is”:
-
-Not for production use
-No guarantee of protection
-Use at your own risk
-Author not responsible for damage
-🤝 Contributing
-
-Want to upgrade this into a real security beast? 🧠
-
-Ideas:
-🔄 Auto-update signatures
-🧠 Machine learning detection
-🧵 Multi-threaded scanning
-🖥️ GUI (Tkinter / PyQt)
-☁️ Cloud API scanning
-Steps:
-1. Fork the repo
-2. Create a branch (feature/your-feature)
-3. Commit changes
-4. Push
-5. Open Pull Request
-
-⚙️ GitHub Actions (CI Setup)
-
-Create this file:
-
-.github/workflows/python.yml
-
-name: Python CI
-
-on: [push, pull_request]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
-
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt || true
-
-    - name: Run script check
-      run: |
-        python main.py --help || true
-
-📜 License
-
-AGPL v3.0 License
-
-⭐ Support
-
-If you like this project:
-
-⭐ Star it
-🍴 Fork it
-🧑‍💻 Contribute
-🧠 Final Note
-
-An antivirus is a silent duel between detection and evasion.
-Right now, yours is learning to see 👁️
-
-🔥 If You Want Next-Level
-
-I can help you turn this into:
-
-🛡️ A real-time antivirus (file watcher)
-🧠 Add AI malware detection
-📊 Build a web dashboard
-💼 Make it CV / job ready (huge upgrade)
-
-Just tell me 👍
-
-can you nake it in READMD.me style to showcase very good
-
-Absolutely—let’s give your README the kind of glow-up that makes recruiters pause mid-scroll and think, “wait… this one” 🛡️✨
-
-Below is a GitHub-optimized README.md with clean formatting, visual hierarchy, badges, sections, and just enough swagger to feel professional without being noisy.
+<div align="center">
 
 # 🛡️ Python Antivirus
 
-<p align="center">
-  <b>A lightweight antivirus built in Python for learning and experimentation in cybersecurity</b>
-</p>
+**A lightweight, educational antivirus engine built in pure Python**
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.x-blue"/>
-  <img src="https://img.shields.io/badge/License-AGPL-green"/>
-  <img src="https://img.shields.io/badge/Status-Active-brightgreen"/>
-  <img src="https://img.shields.io/badge/Contributions-Welcome-orange"/>
-</p>
+[![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![License](https://img.shields.io/badge/License-AGPL%20v3-green?style=for-the-badge)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge)]()
+[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-orange?style=for-the-badge)](CONTRIBUTING.md)
+
+*Scan files. Detect threats. Learn how antivirus software really works.*
+
+</div>
 
 ---
 
-## 🚀 Overview
+## 📖 Overview
 
-**Python Antivirus** is a simple yet extensible antivirus engine that scans files and directories using:
+**Python Antivirus** is an educational malware detection engine that demonstrates the core principles behind real-world antivirus software. It uses **signature-based detection** and **heuristic analysis** to identify potentially malicious files and directories — all with zero external dependencies beyond Python itself.
 
-- 🧬 Signature-based detection  
-- 🧠 Basic heuristic analysis  
-
-Built entirely in Python, this project focuses on **understanding how antivirus software works under the hood**.
-
-> ⚠️ This project is for **educational purposes only**
+> ⚠️ **Disclaimer:** This project is designed strictly for **educational and cybersecurity learning purposes**. It is not intended for production use and offers no guarantee of full protection.
 
 ---
 
 ## ✨ Features
 
-- 🔍 Scan files and directories  
-- 🧬 Detect known malware via signatures  
-- 🧠 Identify suspicious patterns (heuristics)  
-- ⚡ Fast and lightweight  
-- 📄 Generate scan reports (JSON / TXT)  
-- 🚧 Quarantine system (extendable)  
+| Feature | Description |
+|---|---|
+| 🔍 **File & Directory Scanning** | Scan individual files or recursively scan entire directories |
+| 🧬 **Signature-Based Detection** | Match file content against a known malware signature database |
+| 🧠 **Heuristic Analysis** | Flag suspicious patterns and structures in unknown files |
+| 📄 **Scan Reports** | Export results in JSON or TXT format |
+| 🚧 **Quarantine System** | Isolate infected files to prevent execution |
+| ⚡ **Fast & Lightweight** | Pure Python — no heavy dependencies |
 
 ---
 
 ## 📂 Project Structure
 
-
-
+```
 Antivirus/
-│── main.py
-│── scanner.py
-│── signatures.txt
-│── utils.py
-│── quarantine/
-│── reports/
-│── README.md
-
+├── main.py              # CLI entry point
+├── scanner.py           # Core detection engine
+├── signatures.txt       # Malware signature database
+├── utils.py             # Helper functions
+├── quarantine/          # Isolated threat storage
+├── reports/             # Scan output directory
+└── README.md
+```
 
 ---
 
-## 🛠️ Installation
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Python 3.x
+
+### Installation
 
 ```bash
+# 1. Clone the repository
 git clone https://github.com/M-2006/Antivirus.git
 cd Antivirus
 
-(Optional) Create virtual environment
+# 2. (Recommended) Create a virtual environment
 python -m venv venv
-source venv/bin/activate      # macOS / Linux
-venv\Scripts\activate         # Windows
+source venv/bin/activate        # macOS / Linux
+venv\Scripts\activate           # Windows
 
-Install dependencies
+# 3. Install dependencies
 pip install -r requirements.txt
+```
 
-▶️ Usage
-Scan a file
-python main.py --file path/to/file
+---
 
-Scan a directory
+## ▶️ Usage
+
+### Scan a single file
+```bash
+python main.py --file path/to/file.exe
+```
+
+### Scan a directory
+```bash
 python main.py --dir path/to/folder
+```
 
-Generate report
+### Generate a scan report
+```bash
+# JSON format
 python main.py --dir ./test --report json
 
-🧾 CLI Options
---file <path>        Scan a single file
---dir <path>         Scan a directory
---report <type>      Output report (json/txt)
---quarantine         Move infected files
+# TXT format
+python main.py --dir ./test --report txt
+```
 
-🧪 Example Output
-[INFO] Scanning: test.exe
-[WARNING] Suspicious pattern detected
-[ALERT] Malware signature match found
+### Enable quarantine
+```bash
+python main.py --dir ./test --quarantine
+```
 
-Result: INFECTED
+### Full CLI reference
+```
+Usage: main.py [OPTIONS]
 
-📄 Reports
-JSON
+  Options:
+    --file <path>        Scan a single file
+    --dir  <path>        Scan a directory recursively
+    --report <type>      Save report as json or txt
+    --quarantine         Move infected files to quarantine
+    --help               Show this help message
+```
+
+---
+
+## 🖥️ Example Output
+
+```
+[INFO]    Scanning: test.exe
+[INFO]    Scanning: document.pdf
+[WARNING] Suspicious pattern detected in document.pdf
+[ALERT]   Malware signature match found in test.exe
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Scan Complete
+  Files scanned : 2
+  Threats found : 1
+  Status        : INFECTED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+---
+
+## 📄 Report Formats
+
+<details>
+<summary><strong>JSON Report</strong></summary>
+
+```json
 {
   "file": "test.exe",
   "status": "infected",
-  "detections": ["Trojan.Generic"]
+  "detections": ["Trojan.Generic"],
+  "scanned_at": "2025-08-01T14:32:00"
 }
+```
+</details>
 
-TXT
-File: test.exe
-Status: INFECTED
-Detection: Trojan.Generic
+<details>
+<summary><strong>TXT Report</strong></summary>
 
-🚧 Quarantine
+```
+File      : test.exe
+Status    : INFECTED
+Detection : Trojan.Generic
+Scanned   : 2025-08-01 14:32:00
+```
+</details>
 
-When enabled:
+---
 
-Infected files are moved to /quarantine
-Prevents execution
-Keeps files for analysis
+## 🧠 How It Works
+
+### 🧬 Signature-Based Detection
+The engine reads known malware byte patterns and string signatures from `signatures.txt` and compares them against each file's content. A match triggers an `[ALERT]`.
+
+### 🧠 Heuristic Analysis
+Even without a known signature, files containing suspicious structures (unusual entropy, dangerous opcodes, obfuscated strings) are flagged as `[WARNING]` for manual review.
+
+### 🚧 Quarantine
+When `--quarantine` is enabled, infected files are moved to the `/quarantine` directory — preserving them for analysis while preventing execution.
+
+```
 quarantine/
-└── infected_file.exe
+└── test.exe.quarantined
+```
 
-🧠 How It Works
-🧬 Signature Detection
+---
 
-Compares file content against known malware patterns stored in signatures.txt.
+## ⚠️ Known Limitations
 
-🧠 Heuristic Analysis
+- ❌ No real-time file system monitoring
+- ❌ No automatic signature database updates
+- ❌ Basic detection — advanced threats may evade
+- ❌ Potential false positives on obfuscated-but-safe files
 
-Detects suspicious structures or anomalies that may indicate unknown threats.
+---
 
-⚠️ Limitations
-No real-time protection
-No automatic updates
-Basic detection only
-Possible false positives
-📌 Disclaimer
+## 🗺️ Roadmap
 
-This project is provided "as is":
+Planned features and improvements:
 
-Not intended for production use
-No guarantee of full protection
-Use at your own risk
-🤝 Contributing
+- [ ] 🔄 Auto-updating signature database
+- [ ] 🧵 Multi-threaded directory scanning
+- [ ] 🧠 Machine learning–based detection
+- [ ] 🖥️ GUI (Tkinter / PyQt5)
+- [ ] ☁️ VirusTotal API integration
+- [ ] 📊 Web dashboard for scan results
+- [ ] 👁️ Real-time file watcher
 
-Contributions are welcome!
+---
 
-1. Fork the repo
-2. Create a branch
-3. Commit changes
-4. Push
-5. Open Pull Request
+## 🤝 Contributing
 
-⚙️ CI (GitHub Actions)
+Contributions are what make open-source great. All PRs are welcome!
 
-Create:
+```bash
+# 1. Fork the repository
+# 2. Create your feature branch
+git checkout -b feature/your-feature-name
 
-.github/workflows/python.yml
+# 3. Commit your changes
+git commit -m "feat: add your feature"
 
+# 4. Push to GitHub
+git push origin feature/your-feature-name
+
+# 5. Open a Pull Request
+```
+
+Please follow conventional commit style (`feat:`, `fix:`, `docs:`, etc.) and describe your changes clearly.
+
+---
+
+## ⚙️ CI/CD (GitHub Actions)
+
+Add the following file to enable automated checks on every push:
+
+`.github/workflows/python.yml`
+```yaml
 name: Python CI
 
 on: [push, pull_request]
@@ -365,25 +237,37 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-
       - uses: actions/setup-python@v4
         with:
           python-version: '3.x'
+      - name: Install dependencies
+        run: pip install -r requirements.txt || true
+      - name: Smoke test
+        run: python main.py --help || true
+```
 
-      - run: pip install -r requirements.txt || true
-      - run: python main.py --help || true
+---
 
-📜 License
+## 📜 License
 
-AGPL v3.0 License
+This project is licensed under the **GNU Affero General Public License v3.0**.
+See [LICENSE](LICENSE) for full details.
 
-⭐ Support
+---
 
-If you like this project:
+## 👤 Author
 
-⭐ Star it
-🍴 Fork it
-🧑‍💻 Contribute
+**M-2006**
+- GitHub: [@M-2006](https://github.com/M-2006)
+
+---
+
+<div align="center">
+
+If this project helped you learn something, consider giving it a ⭐ — it means a lot!
+
+*"An antivirus is a silent duel between detection and evasion. Right now, yours is learning to see."*
+
+</div>
